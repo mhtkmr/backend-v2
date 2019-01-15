@@ -8,6 +8,6 @@
 * Run Redis Server in background.
 * Instal Mongodb locally (for development).
 * Run Mongodb in background.
-* ``node index.js``
 * Create ``.env`` file in project's root directory.
   * Add ``MONGO_HOST_URL=your_url_here``. It can be ``localhost:27017`` or ``HOST url``.
+* Run Node.js server: ``node index.js``. Server will listen on port **3000**.
