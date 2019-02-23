@@ -5,6 +5,7 @@ const {
     validateUsername
 } = require("./../validator");
 const Schema = mongo.Schema;
+mongo.set('useCreateIndex', true);
 
 const userSchema = new Schema({
     username: {
@@ -15,7 +16,7 @@ const userSchema = new Schema({
         required: 'Username is required',
         validate: [validateUsername, 'Invalid username'],
         // match: [validateUsername, 'Invalid username'],
-        index: true
+        // index: true
     },
     email: {
         type: String,
@@ -25,15 +26,35 @@ const userSchema = new Schema({
         required: 'Email address is required',
         validate: [validateEmail, 'Invalid email address'],
         // match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Invalid email address'],
-        index: true
+        // index: true
     },
-    password: {
+    // password: {
+    //     type: String,
+    //     required: 'Password is required',
+    //    // validate: [validatePassword, 'Invalid password'],
+    //     // match: [/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/, 'Invalid password']
+    // },
+    subscription: [{
+        type: Schema.Types.ObjectId,
+        ref: 'category'
+    }],
+    fullname:{
+        firstname:{
+            type: String,
+            required: true
+        },
+        middlename:{
+            type: String,
+        },
+        lastname:{
+            type: String,
+            required: true
+        }
+    },
+    hash: {
         type: String,
-        required: 'Password is required',
-        validate: [validatePassword, 'Invalid password'],
-        // match: [/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/, 'Invalid password']
+        required: true
     },
-    hash: String,
     salt: String, // ## TODO: move to .env
     image: String,
     bio: String,
@@ -41,14 +62,15 @@ const userSchema = new Schema({
     timestamps: true
 });
 
-UserSchema.methods.setPassword = (password) => {
+userSchema.methods.setPassword = function(password){
     this.salt = crypto.randomBytes(16).toString('hex');
     this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
 };
 
-UserSchema.methods.validPassword = (password) => {
+userSchema.methods.validPassword = function(password) {
     const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
     return this.hash === hash;
 };
 
-mongo.model('User', userSchema);
+const UserModel = mongo.model('User', userSchema);
+module.exports = UserModel;
