@@ -1,4 +1,6 @@
-module.exports= ({client,logger}) => async function authenticate(req, res, next) {
+module.exports= ({client,logger}) => 
+    
+   async function authenticate (req, res, next){
     //fetch session id
     const sid = req.cookies['connect.sid'];
     //get mongoid of user from redis against sid

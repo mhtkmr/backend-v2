@@ -23,7 +23,7 @@ const cookieParser = require('cookie-parser');
 //importing profile route
 const profile = require('./routes/profile');
 // user authentication
-const authenticate = require('./middleware/authentication');
+const authenticate = require('./middleware/authenticate');
 
 /**
  * Other variables

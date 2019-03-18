@@ -58,7 +58,10 @@ const userSchema = new Schema({
     salt: String, // ## TODO: move to .env
     image: String,
     bio: String,
-}, {
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
+},
+ {
     timestamps: true
 });
 
