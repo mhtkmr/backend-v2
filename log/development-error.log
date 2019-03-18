@@ -1,0 +1,5 @@
+{"name":"express-app","hostname":"rocketeer","pid":8216,"level":50,"msg":"[POST][/] - {}","time":"2019-02-05T12:51:18.249Z","src":{"file":"/home/rocketeer/Desktop/kernel/index.js","line":81,"func":"app.use"},"v":0}
+{"name":"express-app","hostname":"rocketeer","pid":11293,"level":50,"msg":"[POST][/login] - {}","time":"2019-02-06T14:33:34.794Z","src":{"file":"/home/rocketeer/Desktop/kernel/index.js","line":82,"func":"app.use"},"v":0}
+{"name":"express-app","hostname":"rocketeer","pid":11886,"level":50,"msg":"[POST][/login] - {}","time":"2019-02-06T14:46:51.018Z","src":{"file":"/home/rocketeer/Desktop/kernel/index.js","line":88,"func":"app.use"},"v":0}
+{"name":"express-app","hostname":"rocketeer","pid":16568,"level":50,"msg":"[POST][/forgot] - {}","time":"2019-03-17T20:40:27.266Z","src":{"file":"/home/rocketeer/Desktop/backend-v2/index.js","line":86,"func":"app.use"},"v":0}
+{"name":"express-app","hostname":"rocketeer","pid":16758,"level":50,"msg":"[POST][/forgot] - {}","time":"2019-03-17T20:41:29.884Z","src":{"file":"/home/rocketeer/Desktop/backend-v2/index.js","line":86,"func":"app.use"},"v":0}
