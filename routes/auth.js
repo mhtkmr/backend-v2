@@ -196,14 +196,14 @@ module.exports = ({
           var smtpTransport = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: '!!!email!!!',
-              pass: 'password'
+              user: `${process.env.EMAIL_ID}`,
+              pass: `${process.env.EMAIL_PWD}`
             }
           });
           var mailOptions = {
             to: user.email,
-            from: 'passwordreset@demo.com',
-            subject: 'Node.js Password Reset',
+            from: `${process.env.EMAIL_ID}`,
+            subject: 'Research Kernel Password Reset',
             text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
               'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
               'http://' + req.headers.host + '/reset/' + token + '\n\n' +
@@ -274,13 +274,13 @@ module.exports = ({
           var smtpTransport = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: '!!! YOUR SENDGRID USERNAME !!!',
-              pass: '!!! YOUR SENDGRID PASSWORD !!!'
+              user: `${process.env.EMAIL_ID}`,
+              pass: `${process.env.EMAIL_PWD}`
             }
           });
           var mailOptions = {
             to: user.email,
-            from: 'passwordreset@demo.com',
+            from: `${process.env.EMAIL_ID}`,
             subject: 'Your password has been changed',
             text: 'Hello,\n\n' +
               'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
