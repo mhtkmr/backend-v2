@@ -9,7 +9,6 @@
   "author": "Tushar Mudgal <tusharmudgal3@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "async": "^2.6.2",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.12",
