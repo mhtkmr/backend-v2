@@ -161,6 +161,7 @@ module.exports = ({ client, logger }) => {
             { uname: user.username },
             { email: user.email },
 
+
             { fullname: user.fullname },
 
             { subscription: user.subscription }
@@ -225,7 +226,7 @@ module.exports = ({ client, logger }) => {
           "/reset/" +
           token +
           "\n\n" +
-          "If you did not request this, please ignore this email and your password will remain unchanged.\n"
+          "If you did not 
       });
       console.log(smail);
 
